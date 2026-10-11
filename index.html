@@ -17,7 +17,9 @@ button,input,select{font:inherit}button{cursor:pointer}.top{background:linear-gr
 .topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.brand{font-size:12px;letter-spacing:1.5px;color:#d8e4f1}.top h1{font-size:25px;margin:8px 0 4px}.top p{margin:0;color:#d2deeb;font-size:13px}.monthrow{display:flex;align-items:center;gap:10px;margin-top:20px;flex-wrap:wrap}.monthrow input{background:#ffffff18;color:white;border:1px solid #ffffff35;padding:10px 12px;border-radius:12px;max-width:100%;min-width:0}.monthrow label{font-size:12px;color:#d2deeb}.sectionhead{flex-wrap:wrap}
 main{max-width:760px;margin:12px auto 0;padding:0 15px}.summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{background:var(--card);border-radius:18px;padding:16px;box-shadow:var(--shadow);border:1px solid #edf0f5}.metric-label{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}.metric{font-size:23px;font-weight:750;letter-spacing:-.5px;margin:9px 0 4px;overflow-wrap:anywhere}.sub{font-size:12px;color:var(--muted)}.green{color:var(--green)}.red{color:var(--red)}.section{margin-top:22px}.sectionhead{display:flex;justify-content:space-between;align-items:center;margin:0 2px 11px;gap:10px}.sectionhead h2{font-size:17px;margin:0}.linkbtn{border:0;background:transparent;color:var(--navy2);font-weight:650;padding:6px}.progress{height:9px;background:#edf1f6;border-radius:99px;overflow:hidden;margin:12px 0 8px}.progress span{height:100%;display:block;background:linear-gradient(90deg,#d5ae60,#efcf8c);border-radius:99px;width:0}.barrow{display:flex;justify-content:space-between;gap:12px;font-size:13px}.rowlist{display:flex;flex-direction:column;gap:9px}.item{display:flex;align-items:center;gap:12px;padding:13px;background:white;border:1px solid var(--line);border-radius:15px}.bubble{width:42px;height:42px;display:grid;place-items:center;background:#edf2f8;border-radius:13px;font-size:19px;flex-shrink:0}.iteminfo{flex:1;min-width:0}.itemname{font-weight:650;font-size:14px;overflow-wrap:anywhere}.itemmeta{font-size:12px;color:var(--muted);margin-top:4px}.amount{font-weight:750;font-size:14px;text-align:right;white-space:nowrap}.itemactions{display:flex;gap:4px;margin-left:2px}.iconbtn{border:0;background:#f2f5f8;border-radius:9px;padding:7px;color:#4b5b70}.primary{border:0;background:var(--navy);color:#fff;border-radius:13px;padding:12px 15px;font-weight:700}.secondary{border:1px solid var(--line);background:white;color:var(--navy);border-radius:12px;padding:10px 12px;font-weight:650}.wide{width:100%}.tabs{position:fixed;bottom:0;left:0;right:0;z-index:10;display:flex;justify-content:space-around;background:#ffffffef;backdrop-filter:blur(16px);border-top:1px solid var(--line);padding:10px 8px calc(10px + env(safe-area-inset-bottom))}.tab{border:0;background:transparent;color:#78869a;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;min-width:60px}.tab b{font-size:20px;font-weight:500}.tab.active{color:var(--navy);font-weight:750}.hidden{display:none!important}.empty{text-align:center;color:var(--muted);padding:24px 12px;font-size:13px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:flex;flex-direction:column;gap:6px;margin-bottom:13px}.field label{font-size:12px;color:var(--muted);font-weight:650}.field input,.field select{width:100%;border:1px solid #dbe2eb;border-radius:12px;padding:12px;background:#fff;color:var(--text);min-height:44px}.field input:focus,.field select:focus{outline:2px solid #c6d8eb;border-color:#6688aa}.modalback{position:fixed;inset:0;background:#101c2d75;z-index:30;display:flex;align-items:flex-end;justify-content:center}.modal{background:#fff;width:100%;max-width:600px;border-radius:24px 24px 0 0;padding:22px 18px calc(22px + env(safe-area-inset-bottom));max-height:90vh;overflow:auto}.modal h2{margin:0 0 18px;font-size:19px}.modalbuttons{display:flex;gap:10px;margin-top:8px}.modalbuttons>*{flex:1}.notice{font-size:12px;color:var(--muted);line-height:1.6}.pill{display:inline-block;background:#f4ead5;color:#805d1f;padding:5px 9px;border-radius:99px;font-size:11px;font-weight:700}.chart{display:flex;align-items:flex-end;gap:9px;height:140px;padding:12px 2px 0}.chartcol{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;height:100%;justify-content:flex-end;min-width:0}.chartbar{width:100%;max-width:38px;min-height:3px;border-radius:7px 7px 2px 2px;background:linear-gradient(180deg,#e5c47e,#bd9347)}.chartlabel{font-size:10px;color:var(--muted)}.settingsbtn{background:#ffffff20;border:1px solid #ffffff35;color:white;border-radius:11px;padding:9px 11px}.footerhint{text-align:center;color:#96a2b1;font-size:10px;margin:24px 0 10px}
 @media(min-width:600px){.top{padding-left:max(24px,calc((100vw - 720px)/2));padding-right:max(24px,calc((100vw - 720px)/2))}main{padding:0 22px}.summary{grid-template-columns:repeat(4,minmax(0,1fr))}.metric{font-size:21px}.modalback{align-items:center;padding:18px}.modal{border-radius:24px}}
+@media(max-width:480px){.reportoverview{grid-template-columns:1fr}.donut{width:170px}.reportcats{gap:10px}.reportcontrols{align-items:flex-start}.segmented button{padding:8px 10px}.yearchart{gap:2px}.yearchart .chartlabel{font-size:8px}}
 @media(max-width:420px){.top{padding-left:16px;padding-right:16px}.monthrow{align-items:flex-start}.sectionhead{align-items:flex-start}}
+.reportcontrols{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}.segmented{display:inline-flex;gap:2px;padding:3px;background:#eff3f7;border-radius:12px}.segmented button{border:0;background:transparent;color:var(--muted);border-radius:9px;padding:8px 12px;font-size:12px;font-weight:700}.segmented button.active{background:#fff;color:var(--navy);box-shadow:0 1px 4px #142d4e18}.reportyear{border:1px solid #dbe2eb;border-radius:10px;background:#fff;color:var(--navy);padding:8px 10px;font-weight:650}.reportrange{margin:4px 0 10px}.reportoverview{display:grid;grid-template-columns:minmax(150px,210px) minmax(0,1fr);gap:18px;align-items:center;margin-top:12px}.donutwrap{display:flex;justify-content:center}.donut{width:min(190px,100%);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;position:relative;background:#eaf0f5}.donut:before{content:"";position:absolute;inset:24%;border-radius:50%;background:#fff}.donutcenter{z-index:1;text-align:center;padding:0 5px}.donutcenter span{display:block;color:var(--muted);font-size:12px;margin-bottom:5px}.donutcenter strong{display:block;font-size:14px;overflow-wrap:anywhere}.reportcats{display:flex;flex-direction:column;gap:11px}.reportcat{display:grid;grid-template-columns:11px minmax(0,1fr) auto;align-items:center;gap:9px}.reportcatdot{width:10px;height:10px;border-radius:50%}.reportcatinfo{min-width:0}.reportcatinfo strong{display:block;font-size:13px}.reportcatinfo span{display:block;font-size:11px;color:var(--muted);margin-top:3px}.reportcatamount{font-size:13px;white-space:nowrap}.reportcharttitle{margin:22px 0 0;font-size:14px}.chart.yearchart{gap:4px}.yearchart .chartbar{max-width:28px}.yearchart .chartlabel{font-size:9px}.reportnotice{margin-top:10px}
 </style>
 </head>
 <body>
@@ -56,8 +58,23 @@ main{max-width:760px;margin:12px auto 0;padding:0 15px}.summary{display:grid;gri
  </section>
  <section id="view-reports" class="hidden">
   <div class="sectionhead"><h2>财务分析</h2></div>
-  <div class="card"><h3 style="margin:0 0 5px;font-size:15px">所选月份分类支出</h3><p class="sub">按预算项目和交易支出分类统计</p><div id="categoryBreakdown" class="rowlist"></div></div>
-  <div class="section card"><h3 style="margin:0;font-size:15px">所选月份收支</h3><div class="chart" id="trendChart"></div><div class="notice">图表仅统计所选月份的预算与交易记录。</div></div>
+  <div class="card">
+   <div class="reportcontrols">
+    <div class="segmented" aria-label="统计周期"><button type="button" class="active" data-report-period="month">单月</button><button type="button" data-report-period="year">全年</button></div>
+    <select class="reportyear hidden" id="reportYear" aria-label="统计年份"></select>
+    <div class="segmented" aria-label="收支类型"><button type="button" class="active" data-report-flow="expense">支出</button><button type="button" data-report-flow="income">收入</button></div>
+   </div>
+   <div class="sub reportrange" id="reportRange"></div>
+   <h3 style="margin:0 0 5px;font-size:15px" id="reportBreakdownTitle">支出分类</h3>
+   <p class="sub" id="reportBreakdownHint">按所选月份的预算项目和交易记录统计</p>
+   <div class="reportoverview">
+    <div class="donutwrap"><div class="donut" id="reportDonut"><div class="donutcenter"><span id="reportTotalLabel">支出合计</span><strong id="reportTotal">RM 0.00</strong></div></div></div>
+    <div id="categoryBreakdown" class="reportcats"></div>
+   </div>
+   <h3 class="reportcharttitle" id="trendTitle">本月收支</h3>
+   <div class="chart" id="trendChart"></div>
+   <div class="notice reportnotice" id="reportNotice">统计预算项目与交易记录。</div>
+  </div>
   <div class="section card"><h3 style="margin:0 0 10px;font-size:15px">储蓄目标</h3><div class="field"><label>每月储蓄目标（RM）</label><input id="goalInput" type="number" min="0" step="0.01"></div><button class="primary wide" id="saveGoal">保存储蓄目标</button></div>
  </section>
  <section id="view-settings" class="hidden">
@@ -99,6 +116,7 @@ let state=loadState(), activeTab='dashboard';
 const $=id=>document.getElementById(id);
 const today=new Date();
 $('month').value=`${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}`;
+let reportPeriod='month',reportFlow='expense',reportYear=$('month').value.slice(0,4);
 function normalizeState(s,fallbackMonth){
  if(!Array.isArray(s.transactions))s.transactions=[];
  if(!s.monthlyBudgets||typeof s.monthlyBudgets!=='object'){
@@ -138,10 +156,31 @@ function renderTransactions(){
  const sel=$('filterCategory'),prev=sel.value;sel.innerHTML='<option value="all">全部类别</option>'+cats.map(c=>`<option value="${esc(c)}">${esc(categories[c]||c)}</option>`).join('');if(cats.includes(prev))sel.value=prev;
 }
 function renderReports(){
- const budget=monthBudget(),transactions=monthTransactions();const sums={};budget.expenses.forEach(e=>sums[e.category]=(sums[e.category]||0)+Number(e.amount||0));transactions.filter(t=>t.type==='expense').forEach(t=>sums[t.category]=(sums[t.category]||0)+Number(t.amount||0));const total=Object.values(sums).reduce((a,b)=>a+b,0);
- $('categoryBreakdown').innerHTML=Object.entries(sums).sort((a,b)=>b[1]-a[1]).map(([c,n])=>`<div><div class="barrow"><span>${icons[c]||'🧾'} ${esc(categories[c]||c)}</span><strong>${money(n)}</strong></div><div class="progress"><span style="width:${total?n/total*100:0}%"></span></div></div>`).join('')||'<div class="empty">添加支出项目后会显示分类分析。</div>';
- const values=[{label:'收入',amount:totalMonthIncome(),color:'#6e9e8d'},{label:'支出',amount:allMonthExpenses(),color:'#bd9347'}],max=Math.max(1,...values.map(v=>v.amount));
- $('trendChart').innerHTML=values.map(v=>`<div class="chartcol" title="${v.label} ${money(v.amount)}"><div class="chartbar" style="height:${Math.max(2,v.amount/max*100)}%;background:${v.color}"></div><span class="chartlabel">${v.label}</span><strong class="chartlabel">${money(v.amount)}</strong></div>`).join('');
+ const month=selectedMonth(),year=reportYear||month.slice(0,4),isYear=reportPeriod==='year';
+ const budgets=isYear?Object.entries(state.monthlyBudgets||{}).filter(([key])=>key.startsWith(year+'-')):[[month,monthBudget()]];
+ const transactions=state.transactions.filter(t=>(t.date||'').slice(0,4)=== (isYear?year:month.slice(0,4))&&(isYear||(t.date||'').slice(0,7)===month));
+ const yearOptions=[...new Set([String(today.getFullYear()),...Object.keys(state.monthlyBudgets||{}).map(k=>k.slice(0,4)),...state.transactions.map(t=>(t.date||'').slice(0,4))].filter(y=>/^\d{4}$/.test(y)))].sort();
+ if(!yearOptions.includes(year))yearOptions.push(year),yearOptions.sort();
+ $('reportYear').innerHTML=yearOptions.map(y=>`<option value="${y}">${y}年</option>`).join('');$('reportYear').value=year;$('reportYear').classList.toggle('hidden',!isYear);
+ document.querySelectorAll('[data-report-period]').forEach(b=>{const active=b.dataset.reportPeriod===reportPeriod;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});
+ document.querySelectorAll('[data-report-flow]').forEach(b=>{const active=b.dataset.reportFlow===reportFlow;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});
+ const periodText=isYear?`${year}年全年`:`${month.slice(0,4)}年${Number(month.slice(5,7))}月`;
+ $('reportRange').textContent=periodText;$('reportBreakdownTitle').textContent=reportFlow==='expense'?'支出分类':'收入分类';$('reportTotalLabel').textContent=reportFlow==='expense'?'支出合计':'收入合计';
+ $('reportBreakdownHint').textContent=`按${isYear?'全年':'所选月份'}的预算项目和交易记录统计`;
+ const colors=['#f2cf17','#2878e8','#d7a64e','#f26c32','#32b7a5','#5f69d7','#a774c7','#65a985','#e66c8b','#8293a8'];
+ const sums=new Map();const add=(category,amount,kind)=>{amount=Number(amount)||0;if(amount<=0)return;const key=category||'other',item=sums.get(key)||{amount:0,budgetItems:0,transactions:0};item.amount+=amount;if(kind==='budget')item.budgetItems++;else item.transactions++;sums.set(key,item)};
+ budgets.forEach(([,b])=>{if(reportFlow==='expense')(b.expenses||[]).forEach(e=>add(e.category,e.amount,'budget'));else add('salary',b.income,'budget')});
+ transactions.filter(t=>t.type===reportFlow).forEach(t=>add(t.category,t.amount,'transaction'));
+ const rows=[...sums.entries()].sort((a,b)=>b[1].amount-a[1].amount),total=rows.reduce((n,[,v])=>n+v.amount,0);$('reportTotal').textContent=money(total);
+ let angle=0;const stops=rows.map(([,v],i)=>{const start=angle;angle+=total?v.amount/total*360:0;return`${colors[i%colors.length]} ${start}deg ${angle}deg`});$('reportDonut').style.background=total?`conic-gradient(${stops.join(',')})`:'#eaf0f5';
+ $('categoryBreakdown').innerHTML=rows.map(([c,v],i)=>{const count=reportFlow==='expense'?`${v.budgetItems?`${v.budgetItems}项预算`:''}${v.budgetItems&&v.transactions?' · ':''}${v.transactions?`${v.transactions}笔交易`:''}`:`${v.budgetItems?`${v.budgetItems}${isYear?'个月':'月'}预算`:''}${v.budgetItems&&v.transactions?' · ':''}${v.transactions?`${v.transactions}笔交易`:''}`;return`<div class="reportcat"><i class="reportcatdot" style="background:${colors[i%colors.length]}"></i><div class="reportcatinfo"><strong>${icons[c]||'🧾'} ${esc(categories[c]||'其他')}</strong><span>${total?(v.amount/total*100).toFixed(1):0}%${count?' · '+count:''}</span></div><strong class="reportcatamount">${money(v.amount)}</strong></div>`}).join('')||`<div class="empty">这个${isYear?'年份':'月份'}还没有${reportFlow==='expense'?'支出':'收入'}记录。</div>`;
+ const monthlyTotals=Array(12).fill(0),monthIncome=Number(monthBudget().income||0)+monthTransactions().filter(t=>t.type==='income').reduce((s,t)=>s+Number(t.amount||0),0),monthExpense=allMonthExpenses();
+ budgets.forEach(([key,b])=>{const i=Number(key.slice(5,7))-1;if(i<0||i>11)return;if(reportFlow==='expense')monthlyTotals[i]+=(b.expenses||[]).reduce((s,e)=>s+Number(e.amount||0),0);else monthlyTotals[i]+=Number(b.income||0)});
+ transactions.filter(t=>t.type===reportFlow).forEach(t=>{const i=Number((t.date||'').slice(5,7))-1;if(i>=0&&i<12)monthlyTotals[i]+=Number(t.amount||0)});
+ const chartValues=isYear?monthlyTotals.map((amount,i)=>({label:`${i+1}月`,amount,color:reportFlow==='income'?'#6e9e8d':'#bd9347'})):[{label:'收入',amount:monthIncome,color:'#6e9e8d'},{label:'支出',amount:monthExpense,color:'#bd9347'}],max=Math.max(1,...chartValues.map(v=>v.amount));
+ $('trendTitle').textContent=isYear?`${year}年每月${reportFlow==='income'?'收入':'支出'}`:'本月收支';$('trendChart').classList.toggle('yearchart',isYear);
+ $('trendChart').innerHTML=chartValues.map(v=>`<div class="chartcol" title="${v.label} ${money(v.amount)}"><div class="chartbar" style="height:${Math.max(2,v.amount/max*100)}%;background:${v.color}"></div><span class="chartlabel">${v.label}</span>${isYear?'':`<strong class="chartlabel">${money(v.amount)}</strong>`}</div>`).join('');
+ $('reportNotice').textContent=isYear?'全年金额按各月预算项目和该年度交易记录合计；未录入的月份按 RM 0 统计。':'单月金额包含该月预算项目与该月交易记录。';
 }
 function tab(name){activeTab=name;['dashboard','transactions','reports','settings'].forEach(v=>$('view-'+v).classList.toggle('hidden',v!==name));document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===name));if(name==='transactions')renderTransactions()}
 function showModal(title,body,onSave){
@@ -169,6 +208,8 @@ function importData(file){const r=new FileReader();r.onload=()=>{try{const p=JSO
 document.addEventListener('click',e=>{
  const b=e.target.closest('button');if(!b)return;
  if(b.dataset.tab){tab(b.dataset.tab);return}
+ if(b.dataset.reportPeriod){reportPeriod=b.dataset.reportPeriod;renderReports();return}
+ if(b.dataset.reportFlow){reportFlow=b.dataset.reportFlow;renderReports();return}
  if(b.dataset.action==='add-expense'){addExpense();return}
  if(b.dataset.action==='add-transaction'){addTransaction();return}
  if(b.dataset.editExpense){const x=monthBudget().expenses.find(v=>v.id===b.dataset.editExpense);if(x)addExpense(x);return}
@@ -176,7 +217,8 @@ document.addEventListener('click',e=>{
  if(b.dataset.editTransaction){const x=state.transactions.find(v=>v.id===b.dataset.editTransaction);if(x)addTransaction(x);return}
  if(b.dataset.deleteTransaction){if(confirm('确定删除这笔交易？')){state.transactions=state.transactions.filter(v=>v.id!==b.dataset.deleteTransaction);save()}return}
 });
-$('month').addEventListener('change',render);
+$('month').addEventListener('change',()=>{reportYear=selectedMonth().slice(0,4);render()});
+$('reportYear').addEventListener('change',e=>{reportYear=e.target.value;renderReports()});
 $('filterType').addEventListener('change',renderTransactions);$('filterCategory').addEventListener('change',renderTransactions);
 $('saveIncome').onclick=()=>{const v=Number($('incomeInput').value);if(v<0||!Number.isFinite(v))return alert('请输入有效金额');editableMonthBudget().income=v;save();alert('收入预算已保存。')};
 $('saveGoal').onclick=()=>{const v=Number($('goalInput').value);if(v<0||!Number.isFinite(v))return alert('请输入有效金额');editableMonthBudget().savingsGoal=v;save();alert('储蓄目标已保存。')};
