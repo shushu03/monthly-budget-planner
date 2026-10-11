@@ -184,7 +184,7 @@ $('exportBtn').onclick=exportData;$('exportTop').onclick=exportData;
 $('importBtn').onclick=()=>$('importFile').click();$('importFile').onchange=e=>{if(e.target.files[0])importData(e.target.files[0]);e.target.value=''};
 $('installHelp').onclick=()=>alert('部署到 HTTPS 网站后：1. 用 Safari 打开网址；2. 点击底部或顶部的分享图标（方框向上箭头）；3. 向下找到“添加到主屏幕”；4. 点击“添加”。');
 $('resetBtn').onclick=()=>{if(confirm('确定清除本机预算数据并恢复初始数据吗？建议先导出备份。')){state=structuredClone(seed);save();alert('已恢复初始数据。')}};
-if('serviceWorker' in navigator && location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').then(reg=>reg.update().catch(()=>{})).catch(()=>{}));
 render();
 </script>
 </body></html>
