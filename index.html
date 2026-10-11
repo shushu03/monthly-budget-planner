@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#142d4e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Budget Planner">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Monthly Budget Planner</title>
+<style>
+:root{--navy:#142d4e;--navy2:#21476d;--gold:#d9b56d;--bg:#f3f6fa;--card:#fff;--text:#182333;--muted:#718096;--line:#e5eaf1;--green:#16866a;--red:#c34c4c;--shadow:0 8px 28px rgba(24,45,78,.07)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Noto Sans CJK SC",sans-serif;color:var(--text);padding-bottom:calc(86px + env(safe-area-inset-bottom))}
+button,input,select{font:inherit}button{cursor:pointer}.top{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:calc(20px + env(safe-area-inset-top)) 20px 26px;border-radius:0 0 28px 28px}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{font-size:12px;letter-spacing:1.5px;color:#d8e4f1}.top h1{font-size:25px;margin:8px 0 4px}.top p{margin:0;color:#d2deeb;font-size:13px}.monthrow{display:flex;align-items:center;gap:10px;margin-top:20px}.monthrow input{background:#ffffff18;color:white;border:1px solid #ffffff35;padding:10px 12px;border-radius:12px;max-width:180px}.monthrow label{font-size:12px;color:#d2deeb}
+main{max-width:760px;margin:-12px auto 0;padding:0 15px}.summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{background:var(--card);border-radius:18px;padding:16px;box-shadow:var(--shadow);border:1px solid #edf0f5}.metric-label{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}.metric{font-size:23px;font-weight:750;letter-spacing:-.5px;margin:9px 0 4px;overflow-wrap:anywhere}.sub{font-size:12px;color:var(--muted)}.green{color:var(--green)}.red{color:var(--red)}.section{margin-top:22px}.sectionhead{display:flex;justify-content:space-between;align-items:center;margin:0 2px 11px;gap:10px}.sectionhead h2{font-size:17px;margin:0}.linkbtn{border:0;background:transparent;color:var(--navy2);font-weight:650;padding:6px}.progress{height:9px;background:#edf1f6;border-radius:99px;overflow:hidden;margin:12px 0 8px}.progress span{height:100%;display:block;background:linear-gradient(90deg,#d5ae60,#efcf8c);border-radius:99px;width:0}.barrow{display:flex;justify-content:space-between;gap:12px;font-size:13px}.rowlist{display:flex;flex-direction:column;gap:9px}.item{display:flex;align-items:center;gap:12px;padding:13px;background:white;border:1px solid var(--line);border-radius:15px}.bubble{width:42px;height:42px;display:grid;place-items:center;background:#edf2f8;border-radius:13px;font-size:19px;flex-shrink:0}.iteminfo{flex:1;min-width:0}.itemname{font-weight:650;font-size:14px;overflow-wrap:anywhere}.itemmeta{font-size:12px;color:var(--muted);margin-top:4px}.amount{font-weight:750;font-size:14px;text-align:right;white-space:nowrap}.itemactions{display:flex;gap:4px;margin-left:2px}.iconbtn{border:0;background:#f2f5f8;border-radius:9px;padding:7px;color:#4b5b70}.primary{border:0;background:var(--navy);color:#fff;border-radius:13px;padding:12px 15px;font-weight:700}.secondary{border:1px solid var(--line);background:white;color:var(--navy);border-radius:12px;padding:10px 12px;font-weight:650}.wide{width:100%}.tabs{position:fixed;bottom:0;left:0;right:0;z-index:10;display:flex;justify-content:space-around;background:#ffffffef;backdrop-filter:blur(16px);border-top:1px solid var(--line);padding:10px 8px calc(10px + env(safe-area-inset-bottom))}.tab{border:0;background:transparent;color:#78869a;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;min-width:60px}.tab b{font-size:20px;font-weight:500}.tab.active{color:var(--navy);font-weight:750}.hidden{display:none!important}.empty{text-align:center;color:var(--muted);padding:24px 12px;font-size:13px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:flex;flex-direction:column;gap:6px;margin-bottom:13px}.field label{font-size:12px;color:var(--muted);font-weight:650}.field input,.field select{width:100%;border:1px solid #dbe2eb;border-radius:12px;padding:12px;background:#fff;color:var(--text);min-height:44px}.field input:focus,.field select:focus{outline:2px solid #c6d8eb;border-color:#6688aa}.modalback{position:fixed;inset:0;background:#101c2d75;z-index:30;display:flex;align-items:flex-end;justify-content:center}.modal{background:#fff;width:100%;max-width:600px;border-radius:24px 24px 0 0;padding:22px 18px calc(22px + env(safe-area-inset-bottom));max-height:90vh;overflow:auto}.modal h2{margin:0 0 18px;font-size:19px}.modalbuttons{display:flex;gap:10px;margin-top:8px}.modalbuttons>*{flex:1}.notice{font-size:12px;color:var(--muted);line-height:1.6}.pill{display:inline-block;background:#f4ead5;color:#805d1f;padding:5px 9px;border-radius:99px;font-size:11px;font-weight:700}.chart{display:flex;align-items:flex-end;gap:9px;height:140px;padding:12px 2px 0}.chartcol{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;height:100%;justify-content:flex-end;min-width:0}.chartbar{width:100%;max-width:38px;min-height:3px;border-radius:7px 7px 2px 2px;background:linear-gradient(180deg,#e5c47e,#bd9347)}.chartlabel{font-size:10px;color:var(--muted)}.settingsbtn{background:#ffffff20;border:1px solid #ffffff35;color:white;border-radius:11px;padding:9px 11px}.footerhint{text-align:center;color:#96a2b1;font-size:10px;margin:24px 0 10px}
+@media(min-width:600px){.top{padding-left:max(24px,calc((100vw - 720px)/2));padding-right:max(24px,calc((100vw - 720px)/2))}main{padding:0 22px}.summary{grid-template-columns:repeat(4,minmax(0,1fr))}.metric{font-size:21px}.modalback{align-items:center;padding:18px}.modal{border-radius:24px}}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="topline"><div class="brand">PERSONAL FINANCE</div><button class="settingsbtn" id="exportTop">备份数据 ↗</button></div>
+ <h1>Monthly Budget Planner</h1><p>让每一笔钱，都有清晰的去向。</p>
+ <div class="monthrow"><label for="month">查看月份</label><input id="month" type="month"></div>
+</header>
+<main>
+ <section id="view-dashboard">
+  <div class="summary">
+   <div class="card"><div class="metric-label">💰 每月收入</div><div class="metric" id="incomeMetric">RM 0</div><div class="sub">当前月预算收入</div></div>
+   <div class="card"><div class="metric-label">↘ 已列支出</div><div class="metric red" id="expenseMetric">RM 0</div><div class="sub" id="expenseSub">固定预算与记录</div></div>
+   <div class="card"><div class="metric-label">✦ 预算结余</div><div class="metric green" id="balanceMetric">RM 0</div><div class="sub">收入减去支出</div></div>
+   <div class="card"><div class="metric-label">🎯 储蓄目标</div><div class="metric" id="goalMetric">RM 0</div><div class="sub" id="goalSub">目标进度</div></div>
+  </div>
+  <div class="section card">
+   <div class="sectionhead"><h2>本月预算概况</h2><span class="pill" id="budgetPill">预算总览</span></div>
+   <div class="barrow"><span>已列支出占收入</span><strong id="budgetPercent">0%</strong></div>
+   <div class="progress"><span id="budgetProgress"></span></div>
+   <div class="barrow"><span class="sub">可用余额</span><strong id="availableText">RM 0</strong></div>
+  </div>
+  <div class="section">
+   <div class="sectionhead"><h2>预算支出项目</h2><button class="linkbtn" data-action="add-expense">＋ 添加</button></div>
+   <div class="rowlist" id="expenseList"></div>
+  </div>
+  <div class="section">
+   <div class="sectionhead"><h2>本月交易记录</h2><button class="linkbtn" data-tab="transactions">查看全部 ›</button></div>
+   <div class="rowlist" id="recentList"></div>
+  </div>
+ </section>
+ <section id="view-transactions" class="hidden">
+  <div class="sectionhead"><h2>交易记录</h2><button class="primary" data-action="add-transaction">＋ 新增记录</button></div>
+  <div class="card"><div class="two"><div class="field"><label>交易类型</label><select id="filterType"><option value="all">全部类型</option><option value="income">收入</option><option value="expense">支出</option></select></div><div class="field"><label>类别</label><select id="filterCategory"><option value="all">全部类别</option></select></div></div><div class="sub" id="transactionSummary"></div></div>
+  <div class="section rowlist" id="transactionList"></div>
+ </section>
+ <section id="view-reports" class="hidden">
+  <div class="sectionhead"><h2>财务分析</h2></div>
+  <div class="card"><h3 style="margin:0 0 5px;font-size:15px">预算分布</h3><p class="sub">按已设定的支出项目统计</p><div id="categoryBreakdown" class="rowlist"></div></div>
+  <div class="section card"><h3 style="margin:0;font-size:15px">最近 6 个月收支趋势</h3><div class="chart" id="trendChart"></div><div class="notice">图表根据本设备保存的交易记录计算。没有历史记录的月份会显示为零。</div></div>
+  <div class="section card"><h3 style="margin:0 0 10px;font-size:15px">储蓄目标</h3><div class="field"><label>每月储蓄目标（RM）</label><input id="goalInput" type="number" min="0" step="0.01"></div><button class="primary wide" id="saveGoal">保存储蓄目标</button></div>
+ </section>
+ <section id="view-settings" class="hidden">
+  <div class="sectionhead"><h2>设置与数据</h2></div>
+  <div class="card">
+   <div class="sectionhead"><h2>月收入预算</h2></div>
+   <div class="field"><label>每月收入（RM）</label><input id="incomeInput" type="number" min="0" step="0.01"></div>
+   <button class="primary wide" id="saveIncome">保存收入</button>
+  </div>
+  <div class="section card"><h3 style="margin:0 0 8px;font-size:15px">数据备份与恢复</h3><p class="notice">备份会下载一份 JSON 文件。换手机或清除浏览器数据前，请先备份。恢复备份会替换本设备当前保存的数据。</p><div class="two"><button class="secondary" id="exportBtn">导出备份</button><button class="secondary" id="importBtn">导入备份</button><input id="importFile" type="file" accept=".json,application/json" class="hidden"></div></div>
+  <div class="section card"><h3 style="margin:0 0 8px;font-size:15px">安装到 iPhone</h3><p class="notice">部署到 HTTPS 网站后，在 Safari 打开网站，点分享按钮，再选择“添加到主屏幕”。如果此按钮未出现，请确认网站已部署且使用 Safari。</p><button class="secondary wide" id="installHelp">查看安装说明</button></div>
+  <div class="section card"><h3 style="margin:0 0 8px;font-size:15px">数据说明</h3><p class="notice">当前版本把数据保存在这台设备的浏览器中，不会自动同步到其他设备。请定期导出备份。此版本不连接银行账户，也不会自动读取银行交易。</p><button class="secondary wide" id="resetBtn" style="color:#b53b3b">重置本机数据</button></div>
+ </section>
+ <div class="footerhint">MONTHLY BUDGET PLANNER · 本地保存 · MYR</div>
+</main>
+<nav class="tabs">
+ <button class="tab active" data-tab="dashboard"><b>⌂</b>总览</button>
+ <button class="tab" data-tab="transactions"><b>⇄</b>收支</button>
+ <button class="tab" data-tab="reports"><b>▥</b>分析</button>
+ <button class="tab" data-tab="settings"><b>⚙</b>设置</button>
+</nav>
+<div id="modalHost"></div>
+<script>
+const STORAGE_KEY='monthly-budget-planner-v1';
+const seed={
+ income:3000,
+ expenses:[
+  {id:'jm2fz7h',name:'贷款 1',category:'loan',amount:300},
+  {id:'fdw5cjw',name:'贷款 2',category:'loan',amount:350},
+  {id:'e6ulgxh',name:'贷款 3',category:'loan',amount:175},
+  {id:'fdmoi3f',name:'电话费',category:'phone',amount:100},
+  {id:'qrrbhzj',name:'本月额外 / 预知开销',category:'extra',amount:500}
+ ],
+ transactions:[],savingsGoal:500,currency:'MYR'
+};
+const categories={loan:'贷款',phone:'电话费',food:'伙食',transport:'交通 / 汽油',housing:'房租 / 水电',shopping:'购物',health:'医疗 / 保健',entertainment:'娱乐',salary:'工资收入',other:'其他',extra:'额外开销'};
+const icons={loan:'🏦',phone:'📱',food:'🍜',transport:'🛵',housing:'🏠',shopping:'🛍️',health:'🩺',entertainment:'🎟️',salary:'💼',other:'🧾',extra:'✨'};
+let state=loadState(), activeTab='dashboard';
+const $=id=>document.getElementById(id);
+const today=new Date();
+$('month').value=`${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}`;
+function loadState(){try{const raw=localStorage.getItem(STORAGE_KEY);if(raw){const s=JSON.parse(raw);if(s&&typeof s.income==='number'&&Array.isArray(s.expenses)&&Array.isArray(s.transactions))return s}}catch(e){}return structuredClone(seed)}
+function save(){localStorage.setItem(STORAGE_KEY,JSON.stringify(state));render()}
+function money(n){return new Intl.NumberFormat('en-MY',{style:'currency',currency:'MYR',minimumFractionDigits:2,maximumFractionDigits:2}).format(Number(n)||0).replace('MYR','RM')}
+function id(){return Math.random().toString(36).slice(2,10)}
+function selectedMonth(){return $('month').value||`${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}`}
+function monthTransactions(){return state.transactions.filter(t=>(t.date||'').slice(0,7)===selectedMonth())}
+function allMonthExpenses(){return state.expenses.reduce((a,e)=>a+Number(e.amount||0),0)+monthTransactions().filter(t=>t.type==='expense').reduce((a,t)=>a+Number(t.amount||0),0)}
+function totalMonthIncome(){return Number(state.income||0)+monthTransactions().filter(t=>t.type==='income').reduce((a,t)=>a+Number(t.amount||0),0)}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(){
+ const exp=allMonthExpenses(),inc=totalMonthIncome(),bal=inc-exp;
+ $('incomeMetric').textContent=money(inc);$('expenseMetric').textContent=money(exp);$('balanceMetric').textContent=money(bal);$('balanceMetric').className='metric '+(bal<0?'red':'green');
+ $('goalMetric').textContent=money(state.savingsGoal||0);$('goalSub').textContent=bal>=Number(state.savingsGoal||0)?'已达到本月目标':'目标差额 '+money(Math.max(0,Number(state.savingsGoal||0)-bal));
+ const pct=inc>0?exp/inc*100:0;$('budgetPercent').textContent=pct.toFixed(1)+'%';$('budgetProgress').style.width=Math.min(100,Math.max(0,pct))+'%';$('budgetPill').textContent=pct>100?'超出收入':pct>=80?'预算偏高':'预算总览';$('availableText').textContent=money(bal);$('expenseSub').textContent='固定项目 + 本月交易';
+ $('expenseList').innerHTML=state.expenses.length?state.expenses.map(e=>`<div class="item"><div class="bubble">${icons[e.category]||'🧾'}</div><div class="iteminfo"><div class="itemname">${esc(e.name)}</div><div class="itemmeta">${categories[e.category]||'其他类别'}</div></div><div class="amount">${money(e.amount)}<div class="itemactions"><button class="iconbtn" data-edit-expense="${e.id}" aria-label="编辑">✎</button><button class="iconbtn" data-delete-expense="${e.id}" aria-label="删除">×</button></div></div></div>`).join(''):'<div class="empty">还没有预算支出项目</div>';
+ const recent=monthTransactions().slice().sort((a,b)=>b.date.localeCompare(a.date)).slice(0,4);$('recentList').innerHTML=recent.length?recent.map(transactionHTML).join(''):'<div class="card empty">这个月还没有额外交易记录。你可以新增收入或支出。</div>';
+ renderTransactions();renderReports();
+ $('incomeInput').value=state.income;$('goalInput').value=state.savingsGoal||0;
+}
+function transactionHTML(t){return `<div class="item"><div class="bubble">${icons[t.category]|| (t.type==='income'?'💵':'🧾')}</div><div class="iteminfo"><div class="itemname">${esc(t.name)}</div><div class="itemmeta">${esc(t.date)} · ${categories[t.category]||'其他'}</div></div><div class="amount ${t.type==='income'?'green':'red'}">${t.type==='income'?'+':'−'}${money(t.amount)}<div class="itemactions"><button class="iconbtn" data-edit-transaction="${t.id}">✎</button><button class="iconbtn" data-delete-transaction="${t.id}">×</button></div></div></div>`}
+function renderTransactions(){
+ const tx=monthTransactions().filter(t=>($('filterType')?.value||'all')==='all'||t.type===$('filterType').value).filter(t=>($('filterCategory')?.value||'all')==='all'||t.category===$('filterCategory').value).sort((a,b)=>b.date.localeCompare(a.date));
+ $('transactionList').innerHTML=tx.length?tx.map(transactionHTML).join(''):'<div class="card empty">没有符合条件的记录。点击“新增记录”开始记账。</div>';
+ $('transactionSummary').textContent=`本月共 ${monthTransactions().length} 笔交易 · 收入 ${money(monthTransactions().filter(t=>t.type==='income').reduce((s,t)=>s+t.amount,0))} · 支出 ${money(monthTransactions().filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0))}`;
+ const cats=[...new Set([...state.expenses.map(e=>e.category),...state.transactions.map(t=>t.category)])];
+ const sel=$('filterCategory'),prev=sel.value;sel.innerHTML='<option value="all">全部类别</option>'+cats.map(c=>`<option value="${esc(c)}">${esc(categories[c]||c)}</option>`).join('');if(cats.includes(prev))sel.value=prev;
+}
+function renderReports(){
+ const sums={};state.expenses.forEach(e=>sums[e.category]=(sums[e.category]||0)+Number(e.amount||0));const total=Object.values(sums).reduce((a,b)=>a+b,0);
+ $('categoryBreakdown').innerHTML=Object.entries(sums).sort((a,b)=>b[1]-a[1]).map(([c,n])=>`<div><div class="barrow"><span>${icons[c]||'🧾'} ${esc(categories[c]||c)}</span><strong>${money(n)}</strong></div><div class="progress"><span style="width:${total?n/total*100:0}%"></span></div></div>`).join('')||'<div class="empty">添加支出项目后会显示分类分析。</div>';
+ const months=[];for(let i=5;i>=0;i--){const d=new Date(today.getFullYear(),today.getMonth()-i,1);const key=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;const ts=state.transactions.filter(t=>(t.date||'').slice(0,7)===key);months.push({label:`${d.getMonth()+1}月`,income:ts.filter(t=>t.type==='income').reduce((a,t)=>a+t.amount,0),expense:ts.filter(t=>t.type==='expense').reduce((a,t)=>a+t.amount,0)})}
+ const max=Math.max(1,...months.map(m=>Math.max(m.income,m.expense)));
+ $('trendChart').innerHTML=months.map(m=>`<div class="chartcol" title="收入 ${money(m.income)}，支出 ${money(m.expense)}"><div style="display:flex;align-items:flex-end;gap:3px;height:100%;width:100%;justify-content:center"><div class="chartbar" style="height:${Math.max(2,m.income/max*100)}%;background:#6e9e8d"></div><div class="chartbar" style="height:${Math.max(2,m.expense/max*100)}%"></div></div><span class="chartlabel">${m.label}</span></div>`).join('');
+}
+function tab(name){activeTab=name;['dashboard','transactions','reports','settings'].forEach(v=>$('view-'+v).classList.toggle('hidden',v!==name));document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===name));if(name==='transactions')renderTransactions()}
+function showModal(title,body,onSave){
+ $('modalHost').innerHTML=`<div class="modalback" id="modalback"><div class="modal"><h2>${title}</h2><form id="editForm">${body}<div class="modalbuttons"><button type="button" class="secondary" id="cancelModal">取消</button><button class="primary" type="submit">保存</button></div></form></div></div>`;
+ $('cancelModal').onclick=closeModal;$('modalback').addEventListener('click',e=>{if(e.target.id==='modalback')closeModal()});
+ $('editForm').onsubmit=e=>{e.preventDefault();const data=Object.fromEntries(new FormData(e.target));onSave(data);closeModal();save()};
+}
+function closeModal(){$('modalHost').innerHTML=''}
+function field(label,name,value,type='text',extra=''){return `<div class="field"><label>${label}</label><input name="${name}" type="${type}" value="${esc(value??'')}" ${extra} required></div>`}
+function categorySelect(selected){return `<div class="field"><label>类别</label><select name="category">${Object.entries(categories).map(([k,v])=>`<option value="${k}" ${k===selected?'selected':''}>${v}</option>`).join('')}</select></div>`}
+function addExpense(existing=null){
+ const e=existing||{name:'',category:'other',amount:''};
+ showModal(existing?'编辑预算项目':'添加预算项目',field('项目名称','name',e.name)+categorySelect(e.category)+field('每月金额（RM）','amount',e.amount,'number','min="0" step="0.01"'),d=>{
+  const obj={id:e.id||id(),name:d.name.trim(),category:d.category,amount:Number(d.amount)};if(existing)state.expenses=state.expenses.map(x=>x.id===e.id?obj:x);else state.expenses.push(obj);
+ });
+}
+function addTransaction(existing=null){
+ const t=existing||{name:'',type:'expense',category:'food',amount:'',date:selectedMonth()+'-'+String(today.getDate()).padStart(2,'0')};
+ showModal(existing?'编辑交易记录':'新增交易记录',`<div class="field"><label>交易类型</label><select name="type"><option value="expense" ${t.type==='expense'?'selected':''}>支出</option><option value="income" ${t.type==='income'?'selected':''}>收入</option></select></div>`+field('项目名称','name',t.name)+categorySelect(t.category)+field('金额（RM）','amount',t.amount,'number','min="0.01" step="0.01"')+field('日期','date',t.date,'date'),d=>{
+  const obj={id:t.id||id(),name:d.name.trim(),type:d.type,category:d.category,amount:Number(d.amount),date:d.date};if(existing)state.transactions=state.transactions.map(x=>x.id===t.id?obj:x);else state.transactions.push(obj);
+ });
+}
+function exportData(){const payload={app:'monthly-budget-planner',version:1,exportedAt:new Date().toISOString(),state};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`budget-backup-${selectedMonth()}.json`;a.click();URL.revokeObjectURL(a.href)}
+function importData(file){const r=new FileReader();r.onload=()=>{try{const p=JSON.parse(r.result),s=p.state||p;if(typeof s.income!=='number'||!Array.isArray(s.expenses))throw Error('格式不正确');if(!Array.isArray(s.transactions))s.transactions=[];if(typeof s.savingsGoal!=='number')s.savingsGoal=500;if(!confirm('导入将替换本机当前数据。确定继续吗？'))return;state=s;save();alert('导入成功。')}catch(e){alert('无法导入：文件格式不正确。')}};r.readAsText(file)}
+document.addEventListener('click',e=>{
+ const b=e.target.closest('button');if(!b)return;
+ if(b.dataset.tab){tab(b.dataset.tab);return}
+ if(b.dataset.action==='add-expense'){addExpense();return}
+ if(b.dataset.action==='add-transaction'){addTransaction();return}
+ if(b.dataset.editExpense){const x=state.expenses.find(v=>v.id===b.dataset.editExpense);if(x)addExpense(x);return}
+ if(b.dataset.deleteExpense){const x=state.expenses.find(v=>v.id===b.dataset.deleteExpense);if(x&&confirm(`删除预算项目“${x.name}”？`)){state.expenses=state.expenses.filter(v=>v.id!==x.id);save()}return}
+ if(b.dataset.editTransaction){const x=state.transactions.find(v=>v.id===b.dataset.editTransaction);if(x)addTransaction(x);return}
+ if(b.dataset.deleteTransaction){if(confirm('确定删除这笔交易？')){state.transactions=state.transactions.filter(v=>v.id!==b.dataset.deleteTransaction);save()}return}
+});
+$('month').addEventListener('change',render);
+$('filterType').addEventListener('change',renderTransactions);$('filterCategory').addEventListener('change',renderTransactions);
+$('saveIncome').onclick=()=>{const v=Number($('incomeInput').value);if(v<0||!Number.isFinite(v))return alert('请输入有效金额');state.income=v;save();alert('收入预算已保存。')};
+$('saveGoal').onclick=()=>{const v=Number($('goalInput').value);if(v<0||!Number.isFinite(v))return alert('请输入有效金额');state.savingsGoal=v;save();alert('储蓄目标已保存。')};
+$('exportBtn').onclick=exportData;$('exportTop').onclick=exportData;
+$('importBtn').onclick=()=>$('importFile').click();$('importFile').onchange=e=>{if(e.target.files[0])importData(e.target.files[0]);e.target.value=''};
+$('installHelp').onclick=()=>alert('部署到 HTTPS 网站后：1. 用 Safari 打开网址；2. 点击底部或顶部的分享图标（方框向上箭头）；3. 向下找到“添加到主屏幕”；4. 点击“添加”。');
+$('resetBtn').onclick=()=>{if(confirm('确定清除本机预算数据并恢复初始数据吗？建议先导出备份。')){state=structuredClone(seed);save();alert('已恢复初始数据。')}};
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+render();
+</script>
+</body></html>

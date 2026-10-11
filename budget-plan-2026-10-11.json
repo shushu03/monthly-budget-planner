@@ -1,0 +1,43 @@
+{
+  "app": "monthly-budget-planner",
+  "version": 1,
+  "exportedAt": "2026-10-11T10:51:31.478Z",
+  "state": {
+    "income": 3000,
+    "expenses": [
+      {
+        "id": "jm2fz7h",
+        "name": "贷款 1",
+        "category": "loan",
+        "amount": 300
+      },
+      {
+        "id": "fdw5cjw",
+        "name": "贷款 2",
+        "category": "loan",
+        "amount": 350
+      },
+      {
+        "id": "e6ulgxh",
+        "name": "贷款 3",
+        "category": "loan",
+        "amount": 175
+      },
+      {
+        "id": "fdmoi3f",
+        "name": "电话费",
+        "category": "phone",
+        "amount": 100
+      },
+      {
+        "id": "qrrbhzj",
+        "name": "本月额外 / 预知开销",
+        "category": "extra",
+        "amount": 500
+      }
+    ],
+    "transactions": [],
+    "savingsGoal": 500,
+    "currency": "MYR"
+  }
+}
